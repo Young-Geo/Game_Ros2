@@ -1,7 +1,12 @@
-#include <iostream>
+#include "work.h"
 
-int     main()
+
+int main()
 {
-    std::cout << "hello anxan" << std::endl;
+    /////
+    ////
+    gWORK->Init();
+    gWORK->Start();//nei loop
+    gWORK->Detach();
     return 0;
 }

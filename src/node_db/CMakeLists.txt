@@ -14,8 +14,35 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_executable(node_db src/main.cpp)
+include_directories(SYSTEM ../Ybasis)
+include_directories(src ${catkin_INCLUDE_DIRS})
+
+SET(SOURCE_FILES
+     src/work.cpp
+     src/DBYS.cpp
+     src/DBconfig.cpp
+     src/ocicursor.cpp
+     src/ocidatabase.cpp
+)
+SET(BASIS
+ ../Ybasis/Ybasis.cpp
+ ../Ybasis/Ywork.cpp
+ ../Ybasis/Ylog.cpp
+ ../Ybasis/Ytime.cpp
+ ../Ybasis/Yconfig.cpp
+ ../Ybasis/YS.cpp
+ ../Ybasis/Ysocket.cpp
+ ../Ybasis/Ymsgtool.cpp
+ ../Ybasis/Ypackage.cpp
+ ../Ybasis/YSocketClient.cpp
+ ../Ybasis/Yuser.cpp
+)
+
+#add_executable(node_db src/main.cpp src/work.cpp src/DBYS.cpp src/DBconfig.cpp src/ocicursor.cpp src/ocidatabase.cpp)
+add_executable(node_db src/main.cpp ${SOURCE_FILES} ${BASIS})
 ament_target_dependencies(node_db rclcpp std_msgs)
+target_link_libraries(node_db ${catkin_LIBRARIES})
+target_link_libraries(node_db mysqlclient event)
 
 install(TARGETS
   node_db
