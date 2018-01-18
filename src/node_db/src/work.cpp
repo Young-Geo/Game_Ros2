@@ -10,6 +10,7 @@
 
 bool		DBwork::Init()
 {
+    this->node.Init("NODE_DB", 10);
     return true;
 }
 
@@ -18,6 +19,7 @@ void		DBwork::Loop()
     while (true)
     {
         ///////
+        /*
         //std::thread::detach();
         workStruct *_ws = (workStruct *)this->Pop();
         if (!_ws || !_ws->_dbEntity || !_ws->_msg) {
@@ -26,6 +28,9 @@ void		DBwork::Loop()
         }
         HandleWork(_ws);
         // delete _ws->_msg
+        */
+        node.SpinOnce();
+
     }
 }
 
@@ -43,13 +48,18 @@ void    DBwork::Join()
 
 void    DBwork::Start()
 {
-    //work::Start();//start parent-->Loop
+    work::Start();//start parent-->Loop
     gDBYS->Start();
 }
 
 void    DBwork::Detach()
 {
     work::Detach();
+}
+
+Ynode& DBwork::GetNode()
+{
+    return node;
 }
 
 

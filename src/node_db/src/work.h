@@ -11,6 +11,7 @@
 #include "Yalone.hpp"
 #include "DBYS.h"
 #include "Ymsgtool.h"
+#include "Ynode.hpp"
 
 struct workStruct
 {
@@ -34,8 +35,13 @@ public:
     void    Join();
     void    Detach();
 public:
+    Ynode & GetNode();
+public:
     void    HandleWork(workStruct *ws);
     void    HandleWorkLogin(workStruct *ws);
+
+private:
+    Ynode node;
 };
 
 #define gWORK DBwork::GetEntity()

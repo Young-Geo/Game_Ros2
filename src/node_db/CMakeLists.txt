@@ -36,6 +36,7 @@ SET(BASIS
  ../Ybasis/Ypackage.cpp
  ../Ybasis/YSocketClient.cpp
  ../Ybasis/Yuser.cpp
+ ../Ybasis/Ynode.hpp
 )
 
 #add_executable(node_db src/main.cpp src/work.cpp src/DBYS.cpp src/DBconfig.cpp src/ocicursor.cpp src/ocidatabase.cpp)

@@ -3,6 +3,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 TARGET = ../Ybasis
+INCLUDEPATH += /home/anxan/ros2_ws/install/include
 LIBS += -lmsgpack
 HEADERS += \
     Ybasis.h \
@@ -17,7 +18,8 @@ HEADERS += \
     Ypackage.h \
     Ychain.hpp \
     YSocketClient.h \
-    Yuser.h
+    Yuser.h \
+    Ynode.hpp
 
 SOURCES += \
     Ywork.cpp \

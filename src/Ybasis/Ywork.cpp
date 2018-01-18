@@ -76,10 +76,12 @@ bool        work::IsStop()
 
 void        work::Join()
 {
-    thread_ptr->join();
+    if (thread_ptr)
+        thread_ptr->join();
 }
 
 void        work::Detach()
 {
-    thread_ptr->detach();
+    if (thread_ptr)
+        thread_ptr->detach();
 }

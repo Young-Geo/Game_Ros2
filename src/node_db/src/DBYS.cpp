@@ -31,7 +31,9 @@ void    DBYS::Start()
         if (!_msg) {
             return;
         }
-        gWORK->Push(new workStruct(_msg, _dbEntity));
+        //gWORK->Push(new workStruct(_msg, _dbEntity));
+        gWORK->HandleWork(new workStruct(_msg, _dbEntity));
+        // delete _ws->_msg
     };
 
     for (Yint i = 0; i < gDBconfig->GetNumDB(); ++i)
